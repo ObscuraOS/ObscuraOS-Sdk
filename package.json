@@ -1,0 +1,82 @@
+{
+  "name": "@obscura/sdk",
+  "version": "1.0.0",
+  "description": "Privacy-First Web3 Operating System SDK - Build privacy-preserving applications with zero-knowledge proofs, on-chain analysis, and multi-chain support.",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./privacy": {
+      "import": "./dist/privacy/index.mjs",
+      "require": "./dist/privacy/index.js",
+      "types": "./dist/privacy/index.d.ts"
+    },
+    "./zk": {
+      "import": "./dist/zk/index.mjs",
+      "require": "./dist/zk/index.js",
+      "types": "./dist/zk/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
+    "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
+    "test": "vitest",
+    "test:coverage": "vitest --coverage",
+    "lint": "eslint src --ext .ts,.tsx",
+    "lint:fix": "eslint src --ext .ts,.tsx --fix",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "web3",
+    "privacy",
+    "blockchain",
+    "ethereum",
+    "zero-knowledge",
+    "zk-proofs",
+    "cryptocurrency",
+    "wallet",
+    "security",
+    "defi",
+    "obscura"
+  ],
+  "author": "Obscura OS Team <help@obscuraos.xyz>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/obscuraos/sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/obscuraos/sdk/issues"
+  },
+  "homepage": "https://obscuraos.xyz",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "ethers": "^6.9.0",
+    "axios": "^1.6.0",
+    "snarkjs": "^0.7.0",
+    "circomlibjs": "^0.1.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "eslint": "^8.55.0",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.0",
+    "vitest": "^1.0.0"
+  },
+  "peerDependencies": {
+    "ethers": "^6.0.0"
+  }
+}
